@@ -3,7 +3,9 @@ package com.nihla.process;
 import com.nihla.model.entity.Merchant;
 import com.nihla.model.entity.PaymentTransaction;
 import com.nihla.model.entity.ReverseTransaction;
+import com.nihla.model.rs.TransactionAvgSummary;
 import com.nihla.util.Constants;
+import com.nihla.util.Messages;
 import com.nihla.util.Utility;
 
 import java.util.*;
@@ -12,7 +14,7 @@ public class Processor {
     private  Map <String, Merchant> merchants;
 
     public Processor() {
-        this.merchants =  new HashMap<String, Merchant>();
+        this.merchants =  new HashMap<>();
     }
 
     public void processCSVInput (String input) {
@@ -35,10 +37,12 @@ public class Processor {
             merchants.get(merchant).removeTransaction(transaction);
         }
     }
-    public void getAverage(String fromDate, String toDate, String merchant) {
-        Merchant merchant1 = merchants.get(merchant);
+    public void getAverage(String fromDate, String toDate, String merchName) {
+        Merchant merchant = merchants.get(merchName);
         long fromTime = Utility.dateTimeConverter(fromDate);
         long toTime = Utility.dateTimeConverter(toDate);
-        System.out.println(merchant1.getAverageTransactions(fromTime, toTime));
+        TransactionAvgSummary summary = merchant.getAverageTransactions(fromTime, toTime);
+        System.out.printf(Messages.SUMMARY_TRANS_COUNT,summary.getCount());
+        System.out.printf(Messages.SUMMARY_TRANS_AVG, summary.getAverage());
     }
 }

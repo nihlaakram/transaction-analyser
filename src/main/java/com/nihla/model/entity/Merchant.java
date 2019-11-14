@@ -1,5 +1,6 @@
 package com.nihla.model.entity;
 
+import com.nihla.model.rs.TransactionAvgSummary;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -20,8 +21,8 @@ public class Merchant {
 
     public Merchant(String name) {
         this.name = name;
-        this.activeTransactions = new HashMap<String, PaymentTransaction>();
-        this.reversedTransactions = new HashMap<String, ReverseTransaction>();
+        this.activeTransactions = new HashMap<>();
+        this.reversedTransactions = new HashMap<>();
     }
 
     public void addTransaction (PaymentTransaction transaction) {
@@ -33,7 +34,7 @@ public class Merchant {
         this.reversedTransactions.put( transaction.getId(), transaction);
     }
 
-    public double getAverageTransactions(long fromTime, long toTime) {
+    public TransactionAvgSummary getAverageTransactions(long fromTime, long toTime) {
         Iterator it = activeTransactions.entrySet().iterator();
         double sum = 0;
         int count = 0;
@@ -46,6 +47,6 @@ public class Merchant {
                 count++;
             }
         }
-        return sum / count;
+        return new TransactionAvgSummary(sum / count, count);
     }
 }

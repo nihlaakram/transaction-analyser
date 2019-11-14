@@ -22,8 +22,6 @@ public class Main {
             while ((line = br.readLine()) != null) {
                 analyser.processCSVInput(line);
             }
-        } catch (FileNotFoundException e) {
-            System.out.printf(Messages.ERROR_OCCURRED, e.getMessage());
         } catch (IOException e) {
             System.out.printf(Messages.ERROR_OCCURRED, e.getMessage());
         } finally {
@@ -51,8 +49,6 @@ public class Main {
         String merchant = sc.nextLine();
 
         analyser.getAverage(fromDate.trim(), toDate.trim(), merchant.trim());
-
-//        analyser.getAverage("20/08/2018 12:00:00", "20/08/2018 13:00:00", "Kwik-E-Mart");
 
     }
 }

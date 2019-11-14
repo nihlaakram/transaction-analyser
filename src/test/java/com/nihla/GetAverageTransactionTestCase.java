@@ -30,10 +30,10 @@ public class GetAverageTransactionTestCase {
     @Test
     public void testGetAverageTransaction() {
 
-        String csvFile = "C:\\Users\\Nihla Akram\\IdeaProjects\\transaction-analyser\\src\\main\\resources\\input.csv";
-        String fromDate = "20/08/2018 12:00:00";
-        String toDate = "20/08/2018 13:00:00";
-        String merchant = "Kwik-E-Mart";
+        String csvFile = "<pathToCSV>";
+        String fromDate = "<fromDate>";
+        String toDate = "<toDate>";
+        String merchant = "<merchant>";
 
         BufferedReader br = null;
         String line = "";
@@ -59,8 +59,6 @@ public class GetAverageTransactionTestCase {
 
         outContent.reset();
         analyser.getAverage(fromDate, toDate, merchant);
-//        Assert.assertEquals(outContent.toString(), Messages.SUMMARY_TRANS_COUNT + "1\n" +
-////
         Assert.assertEquals(outContent.toString(), "Number of transactions = 1\n" +
                 "Average Transaction Value = 59.99\n");
 
