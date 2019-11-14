@@ -6,7 +6,7 @@
 
 
 
-#Usage
+### Usage
 
 To run the program in interactive mode by launching the below main class. Note, please provide path to CSV as a launching param.
 ```
@@ -24,12 +24,15 @@ String merchant = "<merchant>";
 ```
 
 
-###Assumptions made
+### Assumptions made
 All inputs are valid and not null.
 
 All strings are case sensitive (hoolah != Hoolah).
 
 Avg output is formatted for 2 decimal places.
+
+### Test Environment
+Windows 10, Java 8 
 
 <br/>
 <br/>
