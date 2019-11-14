@@ -12,7 +12,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String csvFile = "src\\main\\resources\\input.csv";
+        if (args.length < 1) {
+            System.out.println("No CSV file provided");
+            System.exit(1);
+        }
+        String csvFile = args[0];
         BufferedReader br = null;
         String line = "";
         Processor analyser = new Processor();

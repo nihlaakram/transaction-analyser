@@ -1,7 +1,6 @@
 package com.nihla;
 
 import com.nihla.process.Processor;
-import com.nihla.util.Constants;
 import com.nihla.util.Messages;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
